@@ -1,11 +1,22 @@
+"use client";
+import { useState } from "react";
+
 type GameCardProps = {
     name: string;
     genre: string;
-    year: number;
-}
+};
 
-export default function GameCard({name, genre, year}: GameCardProps) {
+export default function GameCard({ name, genre }: GameCardProps) {
+    const [likes, setLikes] = useState(0);
+
     return (
-        <div><h3>{year} {name} - {genre}</h3></div>
+        <div>
+            <h3>{name}</h3>
+            <p>{genre}</p>
+
+            <p>Likes: {likes}</p>
+
+            <button onClick={() => setLikes(likes + 1)}>Like</button>
+        </div>
     );
 }
