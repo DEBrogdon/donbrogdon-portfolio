@@ -1,7 +1,8 @@
 /*import GameCard from "@/components/GameCard";
 import ToggleMenu from "@/components/ToggleMenu";
-import SecretMessage from "@/components/SecretMessage";*/
-import PowerButton from "@/components/PowerButton";
+import SecretMessage from "@/components/SecretMessage";
+import PowerButton from "@/components/PowerButton";*/
+import DoorLock from "@/components/DoorLock";
 export default function Home() {
     //GameCard variables
     /*const games = [
@@ -23,7 +24,7 @@ export default function Home() {
         <main>
             <h1>My Portfolio</h1>
 
-            <PowerButton/>
+            <DoorLock/>
         </main>
     );
 }
