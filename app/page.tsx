@@ -24,7 +24,8 @@ export default function Home() {
         <main>
             <h1>My Portfolio</h1>
 
-            <DoorLock/>
+            <DoorLock name="Front Door"/>
+            <DoorLock name="Garage Door"/>
         </main>
     );
 }

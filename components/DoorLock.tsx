@@ -1,17 +1,23 @@
-"use client"
+"use client";
 
-import {useState} from "react";
+import { useState } from "react";
 
-export default function DoorLock() {
+type DoorLockProps = {
+    name: string;
+};
+
+export default function DoorLock({ name }: DoorLockProps) {
     const [doorLock, setDoorLock] = useState(true);
 
     return (
         <div>
+            <p>
+                {name}: {doorLock ? "Locked" : "Unlocked"}
+            </p>
+
             <button onClick={() => setDoorLock(!doorLock)}>
                 {doorLock ? "Unlock Door" : "Lock Door"}
             </button>
-            <br/>
-            {doorLock ? "Door: Locked" : "Door: Unlocked"}
         </div>
     );
 }
