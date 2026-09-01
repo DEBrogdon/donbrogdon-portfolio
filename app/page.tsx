@@ -2,8 +2,10 @@
 import ToggleMenu from "@/components/ToggleMenu";
 import SecretMessage from "@/components/SecretMessage";
 import PowerButton from "@/components/PowerButton";
-import DoorLock from "@/components/DoorLock";*/
+import DoorLock from "@/components/DoorLock";
 import Counter from "@/components/Counter";
+import NameInput from "@/components/NameInput";*/
+import PlayerGreeting from "@/components/PlayerGreeting";
 export default function Home() {
     //GameCard variables
     /*const games = [
@@ -24,7 +26,9 @@ export default function Home() {
 
         <main>
 
-            <Counter/>
+            <PlayerGreeting greeting="Shalom" location="Texas" age={40} isOnline={true}/>
+            <hr/>
+            <PlayerGreeting greeting="Howdy" location="Oklahoma" age={35} isOnline={false}/>
         </main>
     );
 }
