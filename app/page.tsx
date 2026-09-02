@@ -4,8 +4,9 @@ import SecretMessage from "@/components/SecretMessage";
 import PowerButton from "@/components/PowerButton";
 import DoorLock from "@/components/DoorLock";
 import Counter from "@/components/Counter";
-import NameInput from "@/components/NameInput";*/
-import PlayerGreeting from "@/components/PlayerGreeting";
+import NameInput from "@/components/NameInput";
+import PlayerGreeting from "@/components/PlayerGreeting";*/
+import GameSearch from "@/components/GameSearch";
 export default function Home() {
     //GameCard variables
     /*const games = [
@@ -16,6 +17,7 @@ export default function Home() {
         { name: "Palworld", genre: "Survival", year: 2026 }
     ];*/
 
+
     return (
         //GameCard Code.
         /*<main>
@@ -25,10 +27,7 @@ export default function Home() {
         </main>*/
 
         <main>
-
-            <PlayerGreeting greeting="Shalom" location="Texas" age={40} isOnline={true}/>
-            <hr/>
-            <PlayerGreeting greeting="Howdy" location="Oklahoma" age={35} isOnline={false}/>
+            <GameSearch/>
         </main>
     );
 }
