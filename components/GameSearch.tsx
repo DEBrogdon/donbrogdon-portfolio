@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 export default function GameSearch() {
+    const [search, setSearch] = useState("");
+
     const games = [
         "Skyrim",
         "Oblivion",
@@ -13,7 +15,18 @@ export default function GameSearch() {
 
     return (
         <div>
-            {games.map(game => <p key={game}>{game}</p>)}
+            {games
+                .filter(game =>
+                    game.toLowerCase().includes(search.toLowerCase())
+                )
+                .map(game=>
+                    <p key={game}>{game}</p>
+                )
+            }
+            <p>---</p>
+            <p>Searching For: {search}</p>
+            <p>---</p>
+            <input type="text" onChange={(event) => setSearch(event.target.value)}/>
         </div>
     );
 }
