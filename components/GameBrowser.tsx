@@ -44,7 +44,7 @@ export default function GameBrowser() {
             <p>Search: <input type="text" onChange={(event) => setSearch(event.target.value)}/></p>
             {games
                 .filter(game =>
-                    (game.genre.toLowerCase().includes(search.toLowerCase()))
+                    (game.genre.toLowerCase().includes(search.toLowerCase()) && (!showRPGsOnly || game.genre.toLowerCase() === "rpg"))
                 )
                 .map(game =>
                     <p key={game.id}>{game.title}</p>
