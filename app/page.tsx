@@ -5,8 +5,9 @@ import PowerButton from "@/components/PowerButton";
 import DoorLock from "@/components/DoorLock";
 import Counter from "@/components/Counter";
 import NameInput from "@/components/NameInput";
-import PlayerGreeting from "@/components/PlayerGreeting";*/
-import GameSearch from "@/components/GameSearch";
+import PlayerGreeting from "@/components/PlayerGreeting";
+import GameSearch from "@/components/GameSearch";*/
+import GameBrowser from "@/components/GameBrowser";
 export default function Home() {
     //GameCard variables
     /*const games = [
@@ -27,7 +28,7 @@ export default function Home() {
         </main>*/
 
         <main>
-            <GameSearch/>
+            <GameBrowser/>
         </main>
     );
 }
