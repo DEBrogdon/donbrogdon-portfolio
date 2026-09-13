@@ -5,6 +5,9 @@ import { useState } from "react";
 export default function GameBrowser() {
     const [search, setSearch] = useState("");
     const [showRPGsOnly, setShowRPGsOnly] = useState(false);
+    const [showCompletedOnly, setShowCompletedOnly] = useState(false);
+    const [showRatingOnly, setShowRatingOnly] = useState(false);
+    const [platform, setPlatform] = useState("All");
 
     const games = [
         { id: 1, title: "The Elder Scrolls V: Skyrim", genre: "RPG", year: 2011, platform: "PC", rating: 9, completed: true },
@@ -44,7 +47,18 @@ export default function GameBrowser() {
             <p>Search: <input type="text" onChange={(event) => setSearch(event.target.value)}/></p>
             {games
                 .filter(game =>
-                    (game.genre.toLowerCase().includes(search.toLowerCase()) && (!showRPGsOnly || game.genre.toLowerCase() === "rpg"))
+                    (
+                        (game.genre.toLowerCase().includes(search.toLowerCase()) || game.title.toLowerCase().includes(search.toLowerCase()))
+                        &&
+                        (!showRPGsOnly || game.genre.toLowerCase() === "rpg")
+                        &&
+                        (!showCompletedOnly || game.completed)
+                        &&
+                        (!showRatingOnly || game.rating === 10)
+                        &&
+                        (platform === "All" || game.platform === platform)
+                    )
+
                 )
                 .map(game =>
                     <p key={game.id}>{game.title}</p>
@@ -52,6 +66,17 @@ export default function GameBrowser() {
             }
             <span>---</span><br/>
             <button onClick={() => setShowRPGsOnly(!showRPGsOnly)}>{showRPGsOnly ? "Show All Games" : "Show RPGs Only"}</button>
+            <br/>
+            <button onClick={() => setShowCompletedOnly(!showCompletedOnly)}>{showCompletedOnly ? "Show All Games" : "Show Completed Only"}</button>
+            <br/>
+            <button onClick={() => setShowRatingOnly(!showRatingOnly)}>{showRatingOnly ? "Show All Games" : "Show 10/10 Games Only"}</button>
+            <br/>
+            <select onChange={(event) => setPlatform(event.target.value)}>
+                <option value="All">All</option>
+                <option value="PC">PC</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="GameCube">GameCube</option>
+            </select>
         </div>
     );
 }
