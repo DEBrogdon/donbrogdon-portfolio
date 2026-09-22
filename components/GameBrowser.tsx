@@ -42,28 +42,25 @@ export default function GameBrowser() {
         { id: 30, title: "Portal 2", genre: "Puzzle", year: 2011, platform: "PC", rating: 10, completed: true }
     ];
 
+    const filteredGames = games.filter(game =>
+        (
+            (game.genre.toLowerCase().includes(search.toLowerCase()) || game.title.toLowerCase().includes(search.toLowerCase()))
+            &&
+            (!showRPGsOnly || game.genre.toLowerCase() === "rpg")
+            &&
+            (!showCompletedOnly || game.completed)
+            &&
+            (!showRatingOnly || game.rating === 10)
+            &&
+            (platform === "All" || game.platform === platform)
+        ));
+
     return (
         <div>
             <p>Search: <input type="text" onChange={(event) => setSearch(event.target.value)}/></p>
-            {games
-                .filter(game =>
-                    (
-                        (game.genre.toLowerCase().includes(search.toLowerCase()) || game.title.toLowerCase().includes(search.toLowerCase()))
-                        &&
-                        (!showRPGsOnly || game.genre.toLowerCase() === "rpg")
-                        &&
-                        (!showCompletedOnly || game.completed)
-                        &&
-                        (!showRatingOnly || game.rating === 10)
-                        &&
-                        (platform === "All" || game.platform === platform)
-                    )
-
-                )
-                .map(game =>
-                    <p key={game.id}>{game.title}</p>
-                )
-            }
+            {filteredGames.map(game =>
+                <p key={game.id}>{game.title}</p>
+            )}
             <span>---</span><br/>
             <button onClick={() => setShowRPGsOnly(!showRPGsOnly)}>{showRPGsOnly ? "Show All Games" : "Show RPGs Only"}</button>
             <br/>
