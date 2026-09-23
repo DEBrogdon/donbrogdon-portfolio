@@ -68,6 +68,9 @@ export default function GameBrowser() {
             <br/>
             <button onClick={() => setShowRatingOnly(!showRatingOnly)}>{showRatingOnly ? "Show All Games" : "Show 10/10 Games Only"}</button>
             <br/>
+            <button onClick={() => setPlatform("PlayStation")}>Set Playstation</button>
+            <p>Current platform state: {platform}</p>
+            <br/>
             <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
                 <option value="All">All</option>
                 <option value="PC">PC</option>
