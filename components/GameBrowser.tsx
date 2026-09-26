@@ -2,6 +2,16 @@
 
 import { useState } from "react";
 
+type PlatformButtonProps = {
+    onSelect: () => void;
+};
+
+function PlatformButton({ onSelect }:PlatformButtonProps) {
+    return (
+        <button onClick={onSelect} style={{border: "2px solid red"}}>Playstation</button>
+    );
+}
+
 export default function GameBrowser() {
     const [search, setSearch] = useState("");
     const [showRPGsOnly, setShowRPGsOnly] = useState(false);
@@ -69,6 +79,7 @@ export default function GameBrowser() {
             <button onClick={() => setShowRatingOnly(!showRatingOnly)}>{showRatingOnly ? "Show All Games" : "Show 10/10 Games Only"}</button>
             <br/>
             <button onClick={() => setPlatform("PlayStation")}>Set Playstation</button>
+            <PlatformButton onSelect={() => setPlatform("PlayStation")} />
             <p>Current platform state: {platform}</p>
             <br/>
             <select value={platform} onChange={(event) => setPlatform(event.target.value)}>
