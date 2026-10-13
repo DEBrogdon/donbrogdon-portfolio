@@ -6,8 +6,9 @@ import DoorLock from "@/components/DoorLock";
 import Counter from "@/components/Counter";
 import NameInput from "@/components/NameInput";
 import PlayerGreeting from "@/components/PlayerGreeting";
-import GameSearch from "@/components/GameSearch";*/
-import GameBrowser from "@/components/GameBrowser";
+import GameSearch from "@/components/GameSearch";
+import GameBrowser from "@/components/GameBrowser";*/
+import GameBrowserPractice from "@/components/GameBrowserPractice";
 export default function Home() {
     //GameCard variables
     /*const games = [
@@ -28,7 +29,7 @@ export default function Home() {
         </main>*/
 
         <main>
-            <GameBrowser/>
+            <GameBrowserPractice/>
         </main>
     );
 }
